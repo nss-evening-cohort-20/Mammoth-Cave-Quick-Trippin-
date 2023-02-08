@@ -12,41 +12,25 @@ public class District
 
 
     //Public Properties//
-    public string DistrictManager { get; set; }
+    public string Manager { get; set; }
 
-    public string DistrictName { get; set; }
+    public string Name { get; set; }
 
-    public int DistrictSales { get; set; }
+    public int Sales { get; set; }
 
     //Constructor Method//
     public District(string districtName, string districtManager, int districtSales)
     {
-        DistrictName = districtName;
-        DistrictManager = districtManager;
-        DistrictSales = districtSales;
-    }
-
-    //For Lists Of Districts//
-    static List<District> _districts = new List<District>();
-
-    public List<District> GetDistricts()
-    {
-        throw new NotImplementedException();
-    }
-
-
-    // For Saving New Districts
-    public void SaveNewDistrict(District district)
-    {
-        throw new NotImplementedException();
+        Name = districtName;
+        Manager = districtManager;
+        Sales = districtSales;
     }
 
     //For List Of Stores//
-    public List<Store> GetStores()
-    {
-        return new List<Store>();
-    }
-
+    //public List<Store> GetStores()
+    //{
+    //    return new List<Store>();
+    //}
 }
 
 

@@ -76,6 +76,8 @@ namespace Namespace
 
             Console.WriteLine(employee1.LastName);
 
+            Menu menu = new Menu();
+            menu.Show();
 
             Console.ReadLine();
 
@@ -84,6 +86,3 @@ namespace Namespace
         }
     }
 }
-
-Menu menu = new Menu();
-menu.Show();

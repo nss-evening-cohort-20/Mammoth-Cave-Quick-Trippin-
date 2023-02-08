@@ -1,16 +1,22 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace Mammoth_Cave_Quick_Trippin_;
 
 public class Menu
 {
+    private DistrictRepository _districtRepository = new DistrictRepository();
 
     private enum MenuOption
     {
-        DistrictSales,
+        DistrictSales = 1,
         DistrictReport,
         NewEmployee,
-        AddStoreDistrict,
+        ShowDistricts,
+        AddDistrict,
+        RemoveDistrict,
+        EditDistrict,
+        AddStore,
         Exit
     }
 
@@ -44,8 +50,29 @@ public class Menu
                     GetNewEmployee();
                     break;
 
-                case MenuOption.AddStoreDistrict:
-                    AddStoreDistrict();
+                case MenuOption.ShowDistricts:
+                    ShowDistricts();
+                    break;
+
+                case MenuOption.AddDistrict:
+                    _districtRepository.SaveNewDistrict();
+                    break;
+
+                case MenuOption.RemoveDistrict:
+                    _districtRepository.RemoveDistrict();
+                    break;
+
+                case MenuOption.EditDistrict:
+                    Console.WriteLine("editing district...");
+                    break;
+
+                case MenuOption.AddStore:
+                    AddStore();
+                    break;
+
+                case MenuOption.Exit:
+                    Exit();
+                    _running = false;
                     break;
 
                 default:
@@ -53,6 +80,15 @@ public class Menu
 
             }
         }
+    }
+
+    public void ShowDistricts()
+    {
+        List<District> districts = _districtRepository.GetDistricts();
+        districts.ForEach(district => Console.WriteLine(district.Name));
+
+        Console.Write("Press enter to exit;");
+        Console.ReadLine();
     }
 
     private string GetMenuAsText()
@@ -71,6 +107,12 @@ public class Menu
 
         return bldr.ToString();
     }
+
+    public void Exit()
+    {
+        Console.WriteLine("Exiting...");
+    }
+
     private void GetDistrictSales()
     {
         Console.WriteLine("Enter District Sales");
@@ -91,7 +133,7 @@ public class Menu
         Console.ReadLine();
     }
 
-    private void AddStoreDistrict()
+    private void AddStore()
     {
         Console.WriteLine("Add a Store/District");
 
