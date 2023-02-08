@@ -34,6 +34,7 @@
 //title
 //id
 //name
+
 using Mammoth_Cave_Quick_Trippin_;
 
 namespace Namespace
@@ -83,3 +84,6 @@ namespace Namespace
         }
     }
 }
+
+Menu menu = new Menu();
+menu.Show();
