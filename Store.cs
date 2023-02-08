@@ -17,10 +17,10 @@ public class Store
         _id = id;
     }
 
-    //public void GenerateSalesReport()
-    //{
-    //    Console.WriteLine($@"Store #{_id}
------------------------------
+//    public void GenerateSalesReport()
+//    {
+//        Console.WriteLine($@"Store #{_id}
+//-----------------------------
 //1. Store Manager
 //{StoreManager}
 //Retail Sales: ${StoreManager.RetailSales}
@@ -48,5 +48,5 @@ public class Store
 //");
 //            num++;
 //        });
-   // }
+//    }
 }
