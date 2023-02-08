@@ -24,5 +24,5 @@ class StoreRepository
     public List<Store> GetStores();
     {
         throw new NotImplementedException();
-    }
+}
 }
