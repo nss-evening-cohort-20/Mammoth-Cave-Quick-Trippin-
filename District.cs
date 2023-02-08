@@ -9,6 +9,8 @@ public class District
     //district name
     //district sales -- totals store sales
 
+
+
     //Public Properties//
     public string DistrictManager { get; set; }
 
