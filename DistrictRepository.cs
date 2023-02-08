@@ -17,12 +17,12 @@ class DistrictRepository
         throw new NotImplementedException();
     }
 }
-class StoreRepository
-{
-    static List<Store> _stores = new List<Store>();
+//class StoreRepository
+//{
+//    static List<Store> _stores = new List<Store>();
 
-    public List<Store> GetStores();
-    {
-        throw new NotImplementedException();
-}
-}
+//    public List<Store> GetStores();
+//    {
+//        throw new NotImplementedException();
+//    }
+//}

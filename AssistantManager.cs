@@ -1,5 +1,5 @@
 ﻿namespace Mammoth_Cave_Quick_Trippin_;
 
-public class AssistantManager
+public class AssistantManager : Employee
 {
 }

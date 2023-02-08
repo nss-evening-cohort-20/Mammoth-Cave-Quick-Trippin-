@@ -1,5 +1,6 @@
 ﻿namespace Mammoth_Cave_Quick_Trippin_;
 
-public class Associate
+public class Associate : Employee
 {
+    //quite job
 }
