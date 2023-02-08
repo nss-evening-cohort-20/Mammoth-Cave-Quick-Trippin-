@@ -66,7 +66,7 @@ namespace Namespace
             /*--------------display employees-------------*/
             foreach (var employee in Employees)
             {
-                //employee.PrintEmployeesToConsol();
+                employee.PrintEmployeesToConsol();
             }
 
 
@@ -74,8 +74,9 @@ namespace Namespace
             var findEmployeeId = Employees.FirstOrDefault(u => u.Id == 1);
             //Console.WriteLine($"Employee {findEmployeeId.Id} {findEmployeeId.FristName} {findEmployeeId.LastName}{findEmployeeId.Title}");
 
-            Console.WriteLine(employee1.LastName);
-
+            //Console.WriteLine(employee1.LastName);
+            //Menu menu = new Menu();
+            //menu.Show();
 
             Console.ReadLine();
 
@@ -85,5 +86,3 @@ namespace Namespace
     }
 }
 
-Menu menu = new Menu();
-menu.Show();

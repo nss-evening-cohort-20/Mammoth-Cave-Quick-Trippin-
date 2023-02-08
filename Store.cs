@@ -17,36 +17,36 @@ public class Store
         _id = id;
     }
 
-    public void GenerateSalesReport()
-    {
-        Console.WriteLine($@"Store #{_id}
+    //public void GenerateSalesReport()
+    //{
+    //    Console.WriteLine($@"Store #{_id}
 -----------------------------
-1. Store Manager
-{StoreManager}
-Retail Sales: ${StoreManager.RetailSales}
+//1. Store Manager
+//{StoreManager}
+//Retail Sales: ${StoreManager.RetailSales}
 
-2. Assistant Manager
-{AssistantManager}
-Retail Sales: ${AssistantManager.RetailSales}
-");
-        GenerateAssociateSales();
-        Console.WriteLine($@"Gas Yearly: ${GasYearly}
-Gas Current quarter: ${GasCurrentQuarter}
-Retail Yearly: ${RetailYearly}
-Retail Current quarter: ${RetailCurrentQuarter}
-");
-    }
+//2. Assistant Manager
+//{AssistantManager}
+//Retail Sales: ${AssistantManager.RetailSales}
+//");
+//        GenerateAssociateSales();
+//        Console.WriteLine($@"Gas Yearly: ${GasYearly}
+//Gas Current quarter: ${GasCurrentQuarter}
+//Retail Yearly: ${RetailYearly}
+//Retail Current quarter: ${RetailCurrentQuarter}
+//");
+//    }
 
-    public void GenerateAssociateSales()
-    {
-        Associates.ForEach(associate =>
-        {
-            int num = 3;
-            Console.WriteLine($@"{num}. Associate
-{associate.Name}
-Retail Sales: ${associate.RetailSales}
-");
-            num++;
-        });
-    }
+//    public void GenerateAssociateSales()
+//    {
+//        Associates.ForEach(associate =>
+//        {
+//            int num = 3;
+//            Console.WriteLine($@"{num}. Associate
+//{associate.Name}
+//Retail Sales: ${associate.RetailSales}
+//");
+//            num++;
+//        });
+   // }
 }

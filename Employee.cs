@@ -16,6 +16,7 @@ public class Employee
         LastName = lastName;
         Title = title;
         Store = Store;
+        District= District;
     }
 
     public int Id { get; set; }
@@ -24,6 +25,7 @@ public class Employee
     public string Title { get; set; }
 
     public int Store { get; set; }
+    public int District { get; set; }
 
     public List<Employee> Employees { get; set;}//= new List<Employee>();
     //public void AddEmployee(Employee employee)
