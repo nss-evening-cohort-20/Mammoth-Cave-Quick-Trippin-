@@ -9,14 +9,14 @@ public class Employee
 
     public Employee() { }
     public Employee(int id) { }
-    public Employee(int id ,string fristName, string lastName, string title) 
+    public Employee(int id ,string fristName, string lastName, string title, int store, string district) 
     {
         Id= id;
         FristName = fristName;
         LastName = lastName;
         Title = title;
-        Store = Store;
-        District= District;
+        Store = store;
+        District= district;
     }
 
     public int Id { get; set; }
@@ -25,7 +25,7 @@ public class Employee
     public string Title { get; set; }
 
     public int Store { get; set; }
-    public int District { get; set; }
+    public string District { get; set; }
 
     public List<Employee> Employees { get; set;}//= new List<Employee>();
     //public void AddEmployee(Employee employee)
