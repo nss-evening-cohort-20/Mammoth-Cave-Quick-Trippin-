@@ -6,16 +6,20 @@ namespace Mammoth_Cave_Quick_Trippin_;
 public class Menu
 {
     private DistrictRepository _districtRepository = new DistrictRepository();
+    private EmployeeRepository _employeeRepository = new EmployeeRepository();
 
     private enum MenuOption
     {
         DistrictSales = 1,
         DistrictReport,
-        NewEmployee,
         ShowDistricts,
         AddDistrict,
         RemoveDistrict,
         EditDistrict,
+        ShowEmployees,
+        AddEmployee,
+        RemoveEmployee,
+        EditEmployee,
         AddStore,
         Exit
     }
@@ -46,10 +50,6 @@ public class Menu
                     GetDistrictReport();
                     break;
 
-                case MenuOption.NewEmployee:
-                    GetNewEmployee();
-                    break;
-
                 case MenuOption.ShowDistricts:
                     ShowDistricts();
                     break;
@@ -64,6 +64,27 @@ public class Menu
 
                 case MenuOption.EditDistrict:
                     Console.WriteLine("editing district...");
+                    break;
+
+                //case MenuOption.AddEmployee:
+                //    GetNewEmployee();
+                //    break;
+
+                case MenuOption.ShowEmployees:
+                    ShowEmployees();
+                    break;
+
+                case MenuOption.AddEmployee:
+                    _employeeRepository.SaveNewEmployee();
+                    break;
+
+
+                case MenuOption.RemoveEmployee:
+                    _employeeRepository.RemoveEmployee();
+                    break;
+
+                case MenuOption.EditEmployee:
+                    _employeeRepository.UpdateEmployee();
                     break;
 
                 case MenuOption.AddStore:
@@ -91,6 +112,17 @@ public class Menu
         Console.ReadLine();
     }
 
+    public void ShowEmployees()
+    {
+        List<Employee> employees = _employeeRepository.GetEmployees();
+        foreach (var employee in employees)
+        {
+            Console.WriteLine(employee.FirstName + employee.LastName);
+        }
+
+        Console.Write("Press enter to exit;");
+        Console.ReadLine();
+    }
     private string GetMenuAsText()
     {
         StringBuilder bldr = new StringBuilder();
@@ -104,7 +136,6 @@ public class Menu
 
         bldr.AppendLine();
         bldr.Append("Please select a menu option: ");
-
         return bldr.ToString();
     }
 
@@ -116,7 +147,6 @@ public class Menu
     private void GetDistrictSales()
     {
         Console.WriteLine("Enter District Sales");
-
         Console.ReadLine();
     }
 
@@ -126,17 +156,16 @@ public class Menu
         Console.ReadLine();
     }
 
-    private void GetNewEmployee()
-    {
-        Console.WriteLine("Add New Employee");
-        Console.Write("Press enter to go back...");
-        Console.ReadLine();
-    }
+    //private void GetEmployee()
+    //{
+    //    Console.WriteLine("Add New Employee");
+    //    Console.Write("Press enter to go back...");
+    //    Console.ReadLine();
+    //}
 
     private void AddStore()
     {
         Console.WriteLine("Add a Store/District");
-
         Console.ReadLine();
     }
 
