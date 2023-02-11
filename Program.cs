@@ -76,8 +76,8 @@ namespace Namespace
             //Console.WriteLine($"Employee {findEmployeeId.Id} {findEmployeeId.FristName} {findEmployeeId.LastName}{findEmployeeId.Title}");
 
             //Console.WriteLine(employee1.LastName);
-            //Menu menu = new Menu();
-            //menu.Show();
+            Menu menu = new Menu();
+            menu.Show();
 
             Console.ReadLine();
 

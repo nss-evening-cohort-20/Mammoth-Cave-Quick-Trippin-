@@ -7,7 +7,7 @@ class DistrictRepository
     // it's just another piece of code to replace and refactor nbd
     static List<District> _districts = new List<District>();
 
-    public List<District> GetDistricts()
+    public List<District> GetDistricts()//????
     {
         return _districts;
     }
@@ -15,7 +15,6 @@ class DistrictRepository
     public void SaveNewDistrict()
     {
         Console.Clear();
-        
         District newDistrict = new District("", "", 0);
         
         Console.Write("District Name: ");
@@ -54,8 +53,6 @@ Sales: {newDistrict.Sales}");
 
         Console.Write("Press enter to exit.");
         Console.ReadLine();
-
-
     }
 }
 //class StoreRepository
