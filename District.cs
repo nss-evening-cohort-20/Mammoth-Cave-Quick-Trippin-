@@ -16,10 +16,10 @@ public class District
 
     public string Name { get; set; }
 
-    public int Sales { get; set; }
+    public double Sales { get; set; }
 
     //Constructor Method//
-    public District(string districtName, string districtManager, int districtSales)
+    public District(string districtName, string districtManager, double districtSales)
     {
         Name = districtName;
         Manager = districtManager;

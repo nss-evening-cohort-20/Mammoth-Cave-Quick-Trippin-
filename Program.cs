@@ -76,11 +76,13 @@ namespace Namespace
             //Console.WriteLine($"Employee {findEmployeeId.Id} {findEmployeeId.FristName} {findEmployeeId.LastName}{findEmployeeId.Title}");
 
             //Console.WriteLine(employee1.LastName);
-            Store store = new Store(1);
-            store.DisplayEmployees();
 
-            //Menu menu = new Menu();
-            //menu.Show();
+            Menu menu = new Menu();
+            menu.Show();
+
+            //Store store = new Store(1);
+            //store.ShowEmployees();
+            //store.ShowSales();
 
             Console.ReadLine();
 

@@ -32,6 +32,7 @@ public class Employee
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Title { get; set; }
+    public double Sales { get; set; }
 
     public int StoreNumber { get; set; }
 
