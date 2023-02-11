@@ -15,7 +15,7 @@ public class Menu
         ShowDistricts,
         AddDistrict,
         RemoveDistrict,
-        EditDistrict,
+        UpdateDistrictSales,
         AddStore,
         Exit
     }
@@ -62,8 +62,8 @@ public class Menu
                     _districtRepository.RemoveDistrict();
                     break;
 
-                case MenuOption.EditDistrict:
-                    Console.WriteLine("editing district...");
+                case MenuOption.UpdateDistrictSales:
+                    _districtRepository.UpdateDistrictSales();
                     break;
 
                 case MenuOption.AddStore:

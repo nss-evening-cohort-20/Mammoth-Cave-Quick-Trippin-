@@ -5,7 +5,13 @@ class DistrictRepository
     // we're using a static list here instead of a proper database
     // but the general idea still holds up once we cover databases
     // it's just another piece of code to replace and refactor nbd
-    static List<District> _districts = new List<District>();
+    static List<District> _districts = new List<District>()
+    {
+        new District ("District1","Mason",10000),
+        new District ("District2","Mariana",20000),
+        new District ("District3","Cristi",30000),
+        new District ("District4","Kyle",40000),
+    };
 
     public List<District> GetDistricts()
     {
@@ -15,9 +21,9 @@ class DistrictRepository
     public void SaveNewDistrict()
     {
         Console.Clear();
-        
+
         District newDistrict = new District("", "", 0);
-        
+
         Console.Write("District Name: ");
         newDistrict.Name = Console.ReadLine();
 
@@ -37,9 +43,32 @@ Sales: {newDistrict.Sales}");
         Console.ReadLine();
     }
 
-    public void UpdateDistrict(District district)
+    public void UpdateDistrictSales()
     {
-        throw new NotImplementedException();
+        Console.Clear();
+
+        Console.Write("What District would you like to update? ");
+
+        string district = Console.ReadLine();
+
+        District foundDistrict = _districts.Find(d => d.Name == district);
+
+        _districts.Remove(foundDistrict);
+        Console.WriteLine($"{foundDistrict.Name} sales: {foundDistrict.Sales}");
+
+
+        Console.Write("Enter your updated sales: ");
+
+
+        foundDistrict.Sales = int.Parse (Console.ReadLine());
+
+        _districts.Add(foundDistrict);
+
+        Console.WriteLine($"{foundDistrict.Name} sales has been updated");
+
+        Console.Write("Press enter to exit.");
+        Console.ReadLine();
+
     }
 
     public void RemoveDistrict()
