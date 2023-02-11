@@ -15,15 +15,17 @@ public class Employee
     static List<Employee> _employees = new List<Employee>();
 
     public Employee() { }
-    public Employee(int id) { }
-    public Employee(int id, string firstName, string lastName, string title, int store, string district)
+    public Employee(int id)
+    { 
+        Id = id;
+    }
+    public Employee(int id, string firstName, string lastName, string title, int store)
     {
         Id = id;
         FirstName = firstName;
         LastName = lastName;
         Title = title;
-        Store = store;
-        District = district;
+        StoreNumber = store;
     }
 
     public int Id { get; set; }
@@ -31,7 +33,7 @@ public class Employee
     public string LastName { get; set; }
     public string Title { get; set; }
 
-    public int Store { get; set; }
+    public int StoreNumber { get; set; }
 
     public string District { get; set; }
     //public int Store
@@ -105,14 +107,13 @@ public class Employee
 
     public string StringValidation(string input)
     {
-        string ValidString = " ";
         while (string.IsNullOrWhiteSpace(input))
         {
             Console.Write("Name cannot be blank: ");
             input = Console.ReadLine();
         }
         //ValidString.
-        return ValidString;
+        return input;
     }
     /*---------------//remove an employee--------------------*/
 
