@@ -1,6 +1,6 @@
 ﻿namespace Mammoth_Cave_Quick_Trippin_;
 
-public class DistrictManager:Employee, IPromote_Fire_Hire
+public class DistrictManager : Employee //, IPromote_Fire_Hire
 {
     //promote/demote other employees' titles
     //fire employee (delete)

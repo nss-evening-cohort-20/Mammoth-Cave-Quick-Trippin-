@@ -13,7 +13,7 @@ class DistrictRepository
         new District ("District4","Kyle",40000),
     };
 
-    public List<District> GetDistricts()
+    public List<District> GetDistricts()//????
     {
         return _districts;
     }
@@ -83,8 +83,6 @@ Sales: {newDistrict.Sales}");
 
         Console.Write("Press enter to exit.");
         Console.ReadLine();
-
-
     }
 }
 //class StoreRepository
