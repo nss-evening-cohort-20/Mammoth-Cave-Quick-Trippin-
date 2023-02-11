@@ -60,7 +60,7 @@ Sales: {newDistrict.Sales}");
         Console.Write("Enter your updated sales: ");
 
 
-        foundDistrict.Sales = int.Parse(Console.ReadLine());
+        foundDistrict.Sales = double.Parse(Console.ReadLine());
 
         _districts.Add(foundDistrict);
 
