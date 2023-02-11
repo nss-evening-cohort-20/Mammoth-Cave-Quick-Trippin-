@@ -67,7 +67,10 @@ Store Number: {newEmployee.Store}");
 
     public void UpdateEmployee()
     {
-        throw new NotImplementedException();
+        Console.Clear();
+        Console.WriteLine("Enter Employee Id to update : #");
+        int employeeId = int.Parse(Console.ReadLine());
+        Employee foundEmployee = _employees.FirstOrDefault(_employees[employeeId]);
     }
     /*---------------//remove an employee--------------------*/
     public void RemoveEmployee()
