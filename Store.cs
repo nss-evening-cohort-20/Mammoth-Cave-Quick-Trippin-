@@ -2,11 +2,29 @@
 
 public class Store
 {
-    private int _id; //have this public read-only maybe?
+    EmployeeRepository _employeeRepository = new EmployeeRepository();
+    private List<Employee> _employees;
+    public List<Employee> Employees
+    { 
+        get { return _employees; }
+        set
+        {
+            List<Employee> allEmployees = _employeeRepository.GetEmployees();
+            foreach (Employee employee in allEmployees)
+            {
+                if (employee.StoreNumber == StoreNumber)
+                {
+                    _employees.Add(employee);
+                }
+            }
+        }
+    }
+
+    public int StoreNumber { get; set; } //have this public read-only maybe?
     //stretch goal: have method in District class that can set the id for a new store since it already contains a list of all the stores? unsure how complex this would be
-    public StoreManager StoreManager { get; set; }
-    public AssistantManager AssistantManager { get; set; }
-    public List<Associate> Associates = new List<Associate>();
+    public Employee StoreManager { get; set; }
+    public Employee AssistantManager { get; set; }
+    public List<Employee> Associates = new List<Employee>();
     public double GasYearly { get; set; }
     public double GasCurrentQuarter { get; set; }
     public double RetailYearly { get; set; }
@@ -14,7 +32,13 @@ public class Store
 
     public Store(int id)
     {
-        _id = id;
+        StoreNumber = id;
+    }
+
+    public void DisplayEmployees()
+    {
+        _employees.ForEach(employee => Console.WriteLine(employee.FirstName));
+        Console.WriteLine("Done.");
     }
 
 //    public void GenerateSalesReport()

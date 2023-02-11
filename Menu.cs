@@ -10,20 +10,15 @@ public class Menu
 
     private enum MenuOption
     {
-        DistrictSales = 1,
-        DistrictReport,
-        ShowDistricts,
+        ShowDistricts = 1,
+        GenerateDistrictReport,
         AddDistrict,
         RemoveDistrict,
-<<<<<<< HEAD
         UpdateDistrictSales,
-=======
-        EditDistrict,
         ShowEmployees,
         AddEmployee,
         RemoveEmployee,
         EditEmployee,
->>>>>>> c97ecab1d5c56ec7e9a1608241a42a5556445786
         AddStore,
         Exit
     }
@@ -35,8 +30,6 @@ public class Menu
         _running = true;
         while (_running)
         {
-            MenuOption currentOption = MenuOption.DistrictSales;
-
             Console.Clear();
             string menuText = GetMenuAsText();
             Console.Write(menuText);
@@ -46,16 +39,12 @@ public class Menu
 
             switch (chooseOption)
             {
-                case MenuOption.DistrictSales:
-                    GetDistrictSales();
-                    break;
-
-                case MenuOption.DistrictReport:
-                    GetDistrictReport();
-                    break;
-
                 case MenuOption.ShowDistricts:
                     ShowDistricts();
+                    break;
+
+                case MenuOption.GenerateDistrictReport:
+                    _districtRepository.GetDistrictReport();
                     break;
 
                 case MenuOption.AddDistrict:
@@ -70,10 +59,6 @@ public class Menu
                     _districtRepository.UpdateDistrictSales();
                     break;
 
-                //case MenuOption.AddEmployee:
-                //    GetNewEmployee();
-                //    break;
-
                 case MenuOption.ShowEmployees:
                     ShowEmployees();
                     break;
@@ -81,7 +66,6 @@ public class Menu
                 case MenuOption.AddEmployee:
                     _employeeRepository.SaveNewEmployee();
                     break;
-
 
                 case MenuOption.RemoveEmployee:
                     _employeeRepository.RemoveEmployee();
@@ -146,18 +130,6 @@ public class Menu
     public void Exit()
     {
         Console.WriteLine("Exiting...");
-    }
-
-    private void GetDistrictSales()
-    {
-        Console.WriteLine("Enter District Sales");
-        Console.ReadLine();
-    }
-
-    private void GetDistrictReport()
-    {
-        Console.Write("Generate District Report");
-        Console.ReadLine();
     }
 
     //private void GetEmployee()

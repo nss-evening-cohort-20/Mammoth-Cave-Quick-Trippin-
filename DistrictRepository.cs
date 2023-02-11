@@ -60,7 +60,7 @@ Sales: {newDistrict.Sales}");
         Console.Write("Enter your updated sales: ");
 
 
-        foundDistrict.Sales = int.Parse (Console.ReadLine());
+        foundDistrict.Sales = int.Parse(Console.ReadLine());
 
         _districts.Add(foundDistrict);
 
@@ -84,13 +84,22 @@ Sales: {newDistrict.Sales}");
         Console.Write("Press enter to exit.");
         Console.ReadLine();
     }
-}
-//class StoreRepository
-//{
-//    static List<Store> _stores = new List<Store>();
 
-//    public List<Store> GetStores();
-//    {
-//        throw new NotImplementedException();
-//    }
-//}
+    public void GetDistrictReport()
+    {
+        Console.Clear();
+        Console.Write("Enter the name of the district you want a report on: ");
+
+        string district = Console.ReadLine();
+        District foundDistrict = _districts.Find(d => d.Name == district);
+
+        Console.WriteLine(@$"
+Name: {foundDistrict.Name}
+Manager: {foundDistrict.Manager}
+Sales: ${foundDistrict.Sales}
+");
+
+        Console.Write("Press enter to exit.");
+        Console.ReadLine();
+    }
+}

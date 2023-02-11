@@ -4,7 +4,30 @@ using static System.Formats.Asn1.AsnWriter;
 
 class EmployeeRepository
 {
-    static List<Employee> _employees = new List<Employee>();
+    static List<Employee> _employees = new List<Employee>()
+    {
+        new Employee(1) { FirstName = "Mason", LastName = "Brad", Title = "Store Manager", StoreNumber = 1 },
+        new Employee(2) { FirstName = "Kyle", LastName = "Brad", Title = "Store Manager", StoreNumber = 2 },
+        new Employee(3) { FirstName = "Mariana", LastName = "Brad", Title = "Store Manager", StoreNumber = 3 },
+        new Employee(4) { FirstName = "Cristi", LastName = "Brad", Title = "Store Manager", StoreNumber = 4 },
+        new Employee(5) { FirstName = "aaaaa", LastName = "Brad", Title = "Store Manager", StoreNumber = 5 },
+        new Employee(6) { FirstName = "Jerry", LastName = "Brad", Title = "Store Manager", StoreNumber = 6 },
+        new Employee(7) { FirstName = "Bob", LastName = "Brad", Title = "Assistant Manager", StoreNumber = 1 },
+        new Employee(8) { FirstName = "Brad", LastName = "Brad", Title = "Assistant Manager", StoreNumber = 2 },
+        new Employee(9) { FirstName = "Diane", LastName = "Brad", Title = "Assistant Manager", StoreNumber = 3 },
+        new Employee(10) { FirstName = "Sam", LastName = "Brad", Title = "Assistant Manager", StoreNumber = 4 },
+        new Employee(11) { FirstName = "Candy", LastName = "Brad", Title = "Assistant Manager", StoreNumber = 5 },
+        new Employee(12) { FirstName = "Brian", LastName = "Brad", Title = "Assistant Manager", StoreNumber = 6 },
+        new Employee(13) { FirstName = "Jasmine", LastName = "Brad", Title = "Associate", StoreNumber = 1 },
+        new Employee(14) { FirstName = "Derek", LastName = "Brad", Title = "Associate", StoreNumber = 2 },
+        new Employee(15) { FirstName = "Hal", LastName = "Brad", Title = "Associate", StoreNumber = 3 },
+        new Employee(16) { FirstName = "Stewart", LastName = "Brad", Title = "Associate", StoreNumber = 4 },
+        new Employee(17) { FirstName = "Thomas", LastName = "Brad", Title = "Associate", StoreNumber = 5 },
+        new Employee(18) { FirstName = "Charles", LastName = "Brad", Title = "Associate", StoreNumber = 6 },
+        new Employee(19) { FirstName = "Lukas", LastName = "Brad", Title = "District Manager" },
+        new Employee(20) { FirstName = "Sarah", LastName = "Brad", Title = "District Manager" },
+        new Employee(21) { FirstName = "Eleven", LastName = "Brad", Title = "District Manager" }
+};
 
     public List<Employee> GetEmployees()
     {
@@ -21,7 +44,7 @@ class EmployeeRepository
         Console.Clear();
         Console.WriteLine("Add New Employee");
 
-        Employee newEmployee = new Employee(0, "", "", "", 0, "");
+        Employee newEmployee = new Employee(0, "", "", "", 0);
         /*---------------//Employee validation--------------------*/
 
         Console.Write("Employee Id: ");
@@ -30,7 +53,7 @@ class EmployeeRepository
         newEmployee.Id = newEmployee.NumberValidation(input1);
         /*-----------------------------------*/
 
-        Console.Write("Employee FirsttName: ");
+        Console.Write("Employee FirstName: ");
         //newEmployee.FirstName = Console.ReadLine();
         string input2 = Console.ReadLine();
         newEmployee.FirstName = newEmployee.StringValidation(input2);
@@ -47,18 +70,17 @@ class EmployeeRepository
         string input4 = Console.ReadLine();
        // int storeNumberOut = 0;
    // newEmployee.Store = storeNumberOut;
-        newEmployee.Store =newEmployee.NumberValidation(input4);
+        newEmployee.StoreNumber =newEmployee.NumberValidation(input4);
         /*-----------------------------------*/
 
-        Console.Write("Employee District: ");
-        newEmployee.District = Console.ReadLine();
-        _employees.Add(newEmployee);
+        //Console.Write("Employee District: ");
+        //newEmployee.District = Console.ReadLine();
+        //_employees.Add(newEmployee);
 
         Console.Clear();
         Console.WriteLine(@$"Employee {newEmployee.FirstName} {newEmployee.LastName} added to database!
 Title: {newEmployee.Title}
-District: {newEmployee.District}
-Store Number: {newEmployee.Store}");
+Store Number: {newEmployee.StoreNumber}");
 
         Console.Write("Press enter to exit.");
         Console.ReadLine();
