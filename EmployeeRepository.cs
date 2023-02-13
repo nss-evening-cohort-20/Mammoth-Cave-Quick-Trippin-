@@ -62,15 +62,21 @@ class EmployeeRepository
         string input3 = Console.ReadLine();
         newEmployee.LastName = newEmployee.StringValidation(input3);
 
+        //Console.Write("Employee Title: ");
+        //newEmployee.Title = Console.ReadLine();
+
+        /*-----------------Title validation------------------*/
+
         Console.Write("Employee Title: ");
         newEmployee.Title = Console.ReadLine();
-
+        string input4 = Console.ReadLine();
+        newEmployee.Title = newEmployee.StringValidation(input4);
         /*-----------------------------------*/
         Console.Write("Employee Store Number: ");
-        string input4 = Console.ReadLine();
+        string input5 = Console.ReadLine();
        // int storeNumberOut = 0;
    // newEmployee.Store = storeNumberOut;
-        newEmployee.StoreNumber =newEmployee.NumberValidation(input4);
+        newEmployee.StoreNumber =newEmployee.NumberValidation(input5);
         /*-----------------------------------*/
 
         //Console.Write("Employee District: ");
@@ -85,14 +91,36 @@ Store Number: {newEmployee.StoreNumber}");
         Console.Write("Press enter to exit.");
         Console.ReadLine();
     }
+
     /*---------------//Edit an employee--------------------*/
 
     public void UpdateEmployee()
     {
-        //Console.Clear();
-        //Console.WriteLine("Enter Employee Id to update : #");
-        //int employeeId = int.Parse(Console.ReadLine());
-        //Employee foundEmployee = _employees.FirstOrDefault(_employees[employeeId]);
+        //Employee newEmployee = new Employee(0, "", "", "", 0);
+        Console.Clear();
+        Console.WriteLine("Enter Employee Id to update : #");
+        int employeeId = int.Parse(Console.ReadLine());
+        Employee foundEmployee = _employees.FirstOrDefault(e => e.Id == employeeId);
+        _employees.Remove(foundEmployee);
+        Console.WriteLine($"{foundEmployee.FirstName} {foundEmployee.LastName}");
+
+
+        Console.Write("Enter your updated Employee First Name: ");
+
+
+        foundEmployee.FirstName = Console.ReadLine();
+        Console.Write("Enter your updated Employee Last Name: ");
+
+
+        foundEmployee.LastName = Console.ReadLine();
+
+        _employees.Add(foundEmployee);
+
+        Console.WriteLine($"{foundEmployee.Id} #Id has been updated");
+
+        Console.Write("Press enter to exit.");
+        Console.ReadLine();
+
     }
     /*---------------//remove an employee--------------------*/
     public void RemoveEmployee()
@@ -141,4 +169,16 @@ Store Number: {newEmployee.StoreNumber}");
 //private void NumberValidation()
 //{
 //    throw new NotImplementedException();
+//}
+/*---------------//Edit an employee--------------------*/
+
+//public void UpdateEmployee()
+//{
+//    //Employee newEmployee = new Employee(0, "", "", "", 0);
+//    Console.Clear();
+//    Console.WriteLine("Enter Employee Id to update : #");
+//    int employeeId = int.Parse(Console.ReadLine());
+//    Employee foundEmployee = _employees.FirstOrDefault(e => e.Id == employeeId);
+//    _employees.Remove(foundEmployee);
+//    EmployeeRepository _employees.SaveNewEmployee();
 //}

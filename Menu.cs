@@ -105,7 +105,7 @@ public class Menu
         List<Employee> employees = _employeeRepository.GetEmployees();
         foreach (var employee in employees)
         {
-            Console.WriteLine(employee.FirstName + employee.LastName);
+            Console.WriteLine(employee.FirstName +" "+ employee.LastName);
         }
 
         Console.Write("Press enter to exit;");
