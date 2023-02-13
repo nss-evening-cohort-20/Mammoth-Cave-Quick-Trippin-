@@ -131,14 +131,6 @@ public class Menu
     {
         Console.WriteLine("Exiting...");
     }
-
-    //private void GetEmployee()
-    //{
-    //    Console.WriteLine("Add New Employee");
-    //    Console.Write("Press enter to go back...");
-    //    Console.ReadLine();
-    //}
-
     private void AddStore()
     {
         Console.WriteLine("Add a Store/District");
