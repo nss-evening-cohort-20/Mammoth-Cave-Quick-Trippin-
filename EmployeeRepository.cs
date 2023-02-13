@@ -62,30 +62,32 @@ class EmployeeRepository
         string input3 = Console.ReadLine();
         newEmployee.LastName = newEmployee.StringValidation(input3);
 
-        //Console.Write("Employee Title: ");
-        //newEmployee.Title = Console.ReadLine();
+        Console.Write("Employee Title: ");
+        newEmployee.Title = Console.ReadLine();
 
         /*-----------------Title validation------------------*/
 
-        Console.Write("Employee Title: Store Manager - Assistant Manager -Associate: ");
-        var output1 = "Store Manager";
-        var output2 = "Assistant Manager";
-        var output3 = "Associate";
-        
-        string input4 = "";
-        do
-        {
-            if (Console.ReadLine() == output1 || Console.ReadLine() == output2 || Console.ReadLine() == output3)
-            {
-                input4 = Console.ReadLine();
-            }
-            else
-            {
-                Console.Write("Please enter valid Title: ");
-                input4 = Console.ReadLine();
-            }
-        } while (true);
-        newEmployee.Title = newEmployee.StringValidation(input4);
+        //Console.Write("Employee Title: Store Manager - Assistant Manager -Associate: ");
+        //var output1 = "Store Manager";
+        //var output2 = "Assistant Manager";
+        //var output3 = "Associate";
+
+        //string input4;
+        //do
+        //{
+        //    if (Console.ReadLine() == output1 || Console.ReadLine() == output2 || Console.ReadLine() == output3)
+        //    {
+        //        input4 = Console.ReadLine();
+        //    }
+        //    else
+        //    {
+        //        Console.Write("Please enter valid Title: ");
+        //        input4 = Console.ReadLine();
+        //    }
+        //    //continue;
+        //} while (true);
+        ////return input4;
+        //newEmployee.Title = newEmployee.StringValidation(input4);
         /*-----------------------------------*/
         Console.Write("Employee Store Number: ");
         string input5 = Console.ReadLine();
@@ -154,46 +156,3 @@ Store Number: {newEmployee.StoreNumber}");
 
 }
 
-/*----------------?????????????????-------------------*/
-//store validation
-//Console.Write("Employee Store: ");
-//int input = newEmployee.Store;
-//while (true)
-//{
-//    if (!int.TryParse(Console.ReadLine(), out input))
-//        Console.Write("Please enter a valid store number: #");
-//    else if (input < 1 || input > 100)
-//        Console.Write("Please enter an amount between 1 and 100: ");
-//    else
-//        break;
-//}
-//Console.WriteLine("Store number is: " + input.ToString("n"));
-/*-----------------------------------*/
-//int storeAsInt;
-//Console.Write("Employee Store: ");
-//string input = Console.ReadLine();
-////|| courageAsDec < 0m || courageAsDec > 2m
-//while (!int.TryParse(input, out storeAsInt))
-//{
-//    Console.Write("Please enter value between 1 and 1000: #");
-//    input = Console.ReadLine();
-//}
-//newEmployee.Store = storeAsInt;
-/*-----------------------------------*/
-
-//private void NumberValidation()
-//{
-//    throw new NotImplementedException();
-//}
-/*---------------//Edit an employee--------------------*/
-
-//public void UpdateEmployee()
-//{
-//    //Employee newEmployee = new Employee(0, "", "", "", 0);
-//    Console.Clear();
-//    Console.WriteLine("Enter Employee Id to update : #");
-//    int employeeId = int.Parse(Console.ReadLine());
-//    Employee foundEmployee = _employees.FirstOrDefault(e => e.Id == employeeId);
-//    _employees.Remove(foundEmployee);
-//    EmployeeRepository _employees.SaveNewEmployee();
-//}

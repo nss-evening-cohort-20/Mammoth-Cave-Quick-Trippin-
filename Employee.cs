@@ -35,21 +35,22 @@ public class Employee
     public int NumberValidation(string input)
     {
         int ValidNumber = 0;
-        bool isInvalid, isOutOfRange, IsOnlyDigits;
+        bool isInvalid, isOutOfRange;
+        //bool isInvalid, isOutOfRange, IsOnlyDigits;
         isOutOfRange = true;
-        IsOnlyDigits = true;
+        //IsOnlyDigits = true;
         do
         {
-            if(IsOnlyDigits) { 
-            foreach (char c in input)
-            {
-                    if (!Char.IsDigit(c))
-                    input = "";
+            //if(IsOnlyDigits) { 
+            //foreach (char c in input)
+            //{
+            //        if (!Char.IsDigit(c))
+            //        input = "";
                    
-                Console.Write("Please enter a valid Number valuemmmm: #");
-                input = Console.ReadLine();
-            }
-            }
+            //    Console.Write("Please enter a valid Number valuemmmm: #");
+            //    input = Console.ReadLine();
+            //}
+            //}
 
             isInvalid = !int.TryParse(input, out ValidNumber);
             if (!isInvalid)
@@ -70,9 +71,7 @@ public class Employee
 
         } while (isInvalid || isOutOfRange);
         //} while (isInvalid || isOutOfRange || IsOnlyDigits);
-
         return ValidNumber;
-        //newEmployee.Store = ValidNumber;
     }
 
 
