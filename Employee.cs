@@ -1,22 +1,16 @@
 ﻿using System.ComponentModel.Design;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Mammoth_Cave_Quick_Trippin_;
 
 public class Employee
 {
-    //private int _store;
-    //private bool ValidStoreInput(int input)
-    //{
-
-    //    return input <= 1;
-    //}
-    //private int _employees;
     static List<Employee> _employees = new List<Employee>();
 
     public Employee() { }
     public Employee(int id)
-    { 
+    {
         Id = id;
     }
     public Employee(int id, string firstName, string lastName, string title, int store)
@@ -33,54 +27,27 @@ public class Employee
     public string LastName { get; set; }
     public string Title { get; set; }
     public double Sales { get; set; }
-
     public int StoreNumber { get; set; }
-
-    public string District { get; set; }
-    //public int Store
-    //{
-    //    get => _store;
-    //    set
-    //    {
-    //        if (ValidStoreInput(value))
-    //        {
-    //            _store = value;
-    //        }
-    //        else
-    //        {
-    //            throw new Exception("The store must be a positive number.");
-    //        }
-    //    }
-    //}
-
-
+    //public string District { get; set; }
     public List<Employee> Employees { get; set; }
-    
-    
-    //= new List<Employee>();
-    //public void AddEmployee(Employee employee)
-    //{
-    //    Employees.Add(employee);
-    //}
 
-    //    public void PrintEmployeesToConsol()
-    //    {
-    //        string output = $@"
-    //Employee:{FristName} {LastName} Title:{Title}";
-    //        Console.WriteLine(output);
-    //    }
-
-
-
+    /*---------------//valid number--------------------*/
     public int NumberValidation(string input)
     {
-
         int ValidNumber = 0;
-        //string input = Console.ReadLine();
-        bool isInvalid, isOutOfRange;
+        bool isInvalid, isOutOfRange, IsOnlyDigits;
         isOutOfRange = true;
+        IsOnlyDigits = false;
         do
         {
+            //foreach (char c in input)
+            //{
+            //    if (!Char.IsDigit(c))
+            //        IsOnlyDigits = true;
+            //    Console.Write("Please enter a valid Number value: #");
+            //    input = Console.ReadLine();
+            //}
+
             isInvalid = !int.TryParse(input, out ValidNumber);
             if (!isInvalid)
             {
@@ -98,22 +65,43 @@ public class Employee
                 input = Console.ReadLine();
             }
 
-        } while (isInvalid || isOutOfRange);
+        } while (isInvalid || isOutOfRange || IsOnlyDigits);
 
         return ValidNumber;
         //newEmployee.Store = ValidNumber;
     }
 
-    /*---------------//valid Name--------------------*/
+
+    /*---------------//valid string--------------------*/
 
     public string StringValidation(string input)
     {
-        while (string.IsNullOrWhiteSpace(input))
+        bool isValid = true;
+
+        do
         {
-            Console.Write("Name cannot be blank: ");
+            if (string.IsNullOrEmpty(input))
+            {
+                isValid = false;
+                Console.Write("Name cannot be blank: ");
+            }
+            else
+            {
+
+                //process 1
+                isValid = Regex.IsMatch(input, @"^[a-zA-Z]+$");
+
+                //process 2
+                foreach (char c in input)
+                {
+                    if (!Char.IsLetter(c))
+                        isValid = false;
+                    Console.Write("just contain characters Please enter a valid value: ");
+                }
+
+            }
             input = Console.ReadLine();
-        }
-        //ValidString.
+        } while (!isValid);
         return input;
     }
     /*---------------//remove an employee--------------------*/
@@ -132,31 +120,6 @@ public class Employee
         Console.Write("Press enter to exit.");
         Console.ReadLine();
     }
+
 }
 
-/*---------------//valid Name--------------------*/
-
-//public string StringValidation(string input)
-//{
-//    string ValidString = " ";
-//    while (true)
-//    {
-
-//        if (string.IsNullOrWhiteSpace(input))
-//        {
-//            Console.Write("Name cannot be blank: ");
-//            input = Console.ReadLine();
-//        }
-//        //if (int.Parse(input)>=0)
-//        //{
-//        //    Console.Write("Enter valid value: ");
-//        //    input = Console.ReadLine();
-//    //}
-//        else
-//    {
-//        continue;
-//    }
-
-//}
-//    return ValidString;
-//}

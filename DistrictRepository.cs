@@ -49,9 +49,9 @@ Sales: {newDistrict.Sales}");
 
         Console.Write("What District would you like to update? ");
 
-        string district = Console.ReadLine();
+        string district = Console.ReadLine().ToLower();
 
-        District foundDistrict = _districts.Find(d => d.Name == district);
+        District foundDistrict = _districts.Find(d => d.Name.ToLower() == district);
 
         _districts.Remove(foundDistrict);
         Console.WriteLine($"{foundDistrict.Name} sales: {foundDistrict.Sales}");
@@ -90,8 +90,8 @@ Sales: {newDistrict.Sales}");
         Console.Clear();
         Console.Write("Enter the name of the district you want a report on: ");
 
-        string district = Console.ReadLine();
-        District foundDistrict = _districts.Find(d => d.Name == district);
+        string district = Console.ReadLine().ToLower();
+        District foundDistrict = _districts.Find(d => d.Name.ToLower() == district);
 
         Console.WriteLine(@$"
 Name: {foundDistrict.Name}
