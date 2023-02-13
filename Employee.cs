@@ -37,16 +37,19 @@ public class Employee
         int ValidNumber = 0;
         bool isInvalid, isOutOfRange, IsOnlyDigits;
         isOutOfRange = true;
-        IsOnlyDigits = false;
+        IsOnlyDigits = true;
         do
         {
-            //foreach (char c in input)
-            //{
-            //    if (!Char.IsDigit(c))
-            //        IsOnlyDigits = true;
-            //    Console.Write("Please enter a valid Number value: #");
-            //    input = Console.ReadLine();
-            //}
+            if(IsOnlyDigits) { 
+            foreach (char c in input)
+            {
+                    if (!Char.IsDigit(c))
+                    input = "";
+                   
+                Console.Write("Please enter a valid Number valuemmmm: #");
+                input = Console.ReadLine();
+            }
+            }
 
             isInvalid = !int.TryParse(input, out ValidNumber);
             if (!isInvalid)
@@ -65,7 +68,8 @@ public class Employee
                 input = Console.ReadLine();
             }
 
-        } while (isInvalid || isOutOfRange || IsOnlyDigits);
+        } while (isInvalid || isOutOfRange);
+        //} while (isInvalid || isOutOfRange || IsOnlyDigits);
 
         return ValidNumber;
         //newEmployee.Store = ValidNumber;
@@ -76,31 +80,45 @@ public class Employee
 
     public string StringValidation(string input)
     {
-        bool isValid = true;
-
+        bool isValid;
         do
         {
+            isValid = true;
+
             if (string.IsNullOrEmpty(input))
             {
                 isValid = false;
                 Console.Write("Name cannot be blank: ");
+                input = Console.ReadLine();
             }
-            else
+            if (isValid)
             {
 
-                //process 1
+                ////process 1
                 isValid = Regex.IsMatch(input, @"^[a-zA-Z]+$");
-
-                //process 2
-                foreach (char c in input)
+                if (!isValid)
                 {
-                    if (!Char.IsLetter(c))
-                        isValid = false;
+                    input = "";
                     Console.Write("just contain characters Please enter a valid value: ");
+                    input = Console.ReadLine();
                 }
 
+                //process 2
+                //foreach (char c in input)
+                //{
+                //    if (!Char.IsLetter(c))
+                //    {
+                //        isValid = false;
+                //        input = "";
+                //        Console.Write("just contain characters Please enter a valid value: ");
+                //        input = Console.ReadLine();
+                //        break;
+
+                //    }
+                //}
+
             }
-            input = Console.ReadLine();
+
         } while (!isValid);
         return input;
     }

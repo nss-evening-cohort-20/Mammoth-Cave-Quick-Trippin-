@@ -67,9 +67,24 @@ class EmployeeRepository
 
         /*-----------------Title validation------------------*/
 
-        Console.Write("Employee Title: ");
-        newEmployee.Title = Console.ReadLine();
-        string input4 = Console.ReadLine();
+        Console.Write("Employee Title: Store Manager - Assistant Manager -Associate: ");
+        var output1 = "Store Manager";
+        var output2 = "Assistant Manager";
+        var output3 = "Associate";
+        
+        string input4 = "";
+        do
+        {
+            if (Console.ReadLine() == output1 || Console.ReadLine() == output2 || Console.ReadLine() == output3)
+            {
+                input4 = Console.ReadLine();
+            }
+            else
+            {
+                Console.Write("Please enter valid Title: ");
+                input4 = Console.ReadLine();
+            }
+        } while (true);
         newEmployee.Title = newEmployee.StringValidation(input4);
         /*-----------------------------------*/
         Console.Write("Employee Store Number: ");
